@@ -1,0 +1,39 @@
+:root {
+    --title-color: #b4d7ee;
+    --box-shadow: 10px 10px 14px 1px rgb(0 0 0 / 20%);
+}
+
+.container {
+    font-family: sans-serif;
+    color: rgba(255, 255, 255, 0.686);
+    background-image: linear-gradient(to right,
+            #43cbff,
+            #0eb6f9,
+            #00a1f2,
+            #008ce8,
+            #0075db,
+            #3b68d2,
+            #5659c7,
+            #6949b9,
+            #883fac,
+            #9e349c,
+            #ae2a8b,
+            #ba2379);
+    margin: 0;
+    padding: 0;
+}
+
+.search-form {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.search-form__input,
+.search-form__btn {
+    padding: 4px 10px;
+    border-radius: 2px;
+    border-color: rgba(0, 0, 0, 0);
+}
+

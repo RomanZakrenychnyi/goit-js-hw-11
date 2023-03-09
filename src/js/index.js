@@ -1,7 +1,8 @@
 import fetchImages from './fetch-images';
 import { Markup } from './markup';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 const formSearchEl = document.querySelector('.search-form');
 const galleryCard = document.querySelector('.gallery');
@@ -36,14 +37,20 @@ const handleImagesSearch = async (event) => {
   galleryCard.innerHTML = markup.handleCreatMarkup(response.hits);
 
 
-  if (response.totalHits > 0) {
+  if (response.totalHits > 40) {
     loadMoreBtn.classList.remove('is-hidden');
   } else {
     loadMoreBtn.classList.add('is-hidden');
   }
 
-  lightbox.refresh();
-
+  try {
+    if (response.totalHits === 0) {
+      galleryCard.innerHTML = '';
+      Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+    }
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const handleLoadMoreBtnClick = async () => {

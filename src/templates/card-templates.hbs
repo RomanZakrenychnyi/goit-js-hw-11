@@ -1,6 +1,7 @@
+{{#each this}}
 <div class='photo-cards'>
-  <a href='{{largeImageURL}}'>
-    <img src='{{webformatURL}}' alt='{{tags}}' />
+  <a href='{{this.largeImageURL}}'>
+    <img src='{{this.webformatURL}}' alt='{{this.tags}}' />
   </a>
   <div class='info'>
     <p class='info-item'>
@@ -21,3 +22,4 @@
     </p>
   </div>
 </div>
+{{/each}}
